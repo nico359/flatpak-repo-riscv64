@@ -1,0 +1,33 @@
+{
+    "app-id": "com.github.tchx84.Flatseal",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "50",
+    "sdk": "org.gnome.Sdk",
+    "separate-locales": false,
+    "command": "com.github.tchx84.Flatseal",
+    "finish-args": [
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--socket=wayland",
+        "--device=dri",
+        "--filesystem=/var/lib/flatpak/app:ro",
+        "--filesystem=xdg-data/flatpak/app:ro",
+        "--filesystem=xdg-data/flatpak/overrides:create",
+        "--talk-name=org.gnome.Software",
+        "--talk-name=org.freedesktop.impl.portal.PermissionStore"
+    ],
+    "modules": [
+        {
+            "name": "flatseal",
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/tchx84/Flatseal.git",
+                    "tag": "v2.4.1",
+                    "commit": "3516a94d25e9f9632dae2f78fb604af1e5b14981"
+                }
+            ]
+        }
+    ]
+}
