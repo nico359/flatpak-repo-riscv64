@@ -1,7 +1,7 @@
 {
     "id" : "io.github.nico359.pinepal",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "50",
+    "runtime-version" : "51",
     "sdk" : "org.gnome.Sdk",
     "sdk-extensions" : [
         "org.freedesktop.Sdk.Extension.rust-stable"
@@ -16,7 +16,9 @@
         "--share=network",
         "--socket=session-bus",
         "--system-talk-name=org.bluez",
-        "--talk-name=org.freedesktop.Notifications"
+        "--system-talk-name=org.ofono",
+        "--talk-name=org.freedesktop.Notifications",
+        "--talk-name=org.mpris.MediaPlayer2.*"
     ],
     "build-options" : {
         "append-path" : "/usr/lib/sdk/rust-stable/bin",
@@ -25,7 +27,8 @@
         ],
         "env" : {
             "CARGO_HOME" : "/run/build/pinepal/cargo",
-            "RUST_BACKTRACE" : "1"
+            "RUST_BACKTRACE" : "1",
+            "AWS_LC_SYS_NO_JITTER_ENTROPY" : "1"
         }
     },
     "cleanup" : [
@@ -49,7 +52,7 @@
                 {
                     "type" : "git",
                     "url" : "https://github.com/nico359/pinepal.git",
-                    "tag" : "v0.6.0"
+                    "tag" : "v0.6.1"
                 }
             ]
         }
